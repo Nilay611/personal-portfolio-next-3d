@@ -1,10 +1,10 @@
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
-export const About = () => {
+export const Experience = () => {
   return (
-    <SectionWrapper orientation="right">
-      <ProgressBar color="accent" orientation="right" />
+    <SectionWrapper orientation="left">
+      <ProgressBar color="accent" orientation="left" />
       <div className="relative px-[5%] py-[20%] border-b-2 border-accent pb-[400px]">
         <h1 className="relative text-accent text-5xl md:text-8xl uppercase font-bold">
           About Me

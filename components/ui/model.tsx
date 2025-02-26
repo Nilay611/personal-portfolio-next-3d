@@ -10,14 +10,12 @@ export function GamingRoom() {
   const { theme } = useTheme();
 
   return (
-    <>
-      <Room>
-        {theme === "light" ? <LightLights /> : <DarkLights />}
-        <Lights />
-        <primitive object={scene} />
-      </Room>
+    <Room>
+      {theme === "light" ? <LightLights /> : <DarkLights />}
+      <Lights />
+      <primitive object={scene} />
       <Floor />
-    </>
+    </Room>
   );
 }
 

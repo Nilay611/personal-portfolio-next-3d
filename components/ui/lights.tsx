@@ -54,9 +54,35 @@ export const LightLights = () => {
 };
 
 export const DarkLights = () => {
+  const primObj = new THREE.Object3D<THREE.Object3DEventMap>();
   return (
     <>
+      <primitive object={primObj} />
       <ambientLight color="#2c379c" intensity={0.1} />
+      <spotLight
+        position={[-4.1, 1, -4.1]}
+        angle={1}
+        intensity={5}
+        penumbra={0.5}
+        distance={10}
+        color={"#ffffff"}
+        castShadow
+        shadow-normalBias={0.05}
+        shadow-mapSize={[1024, 1024]}
+        target={primObj}
+      />
+      <spotLight
+        position={[4, 0.5, -4]}
+        angle={1}
+        intensity={5}
+        penumbra={0.5}
+        distance={10}
+        color={"#ffffff"}
+        castShadow
+        shadow-normalBias={0.05}
+        shadow-mapSize={[1024, 1024]}
+        target={primObj}
+      />
       <pointLight
         position={[2.5, 2.5, -3]}
         intensity={5}

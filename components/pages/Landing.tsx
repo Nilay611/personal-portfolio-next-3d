@@ -1,6 +1,7 @@
 import { Hero } from "@/components/screens/Hero";
 import { About } from "@/components/screens/About";
 import { SectionMargin } from "@/components/ui/section-margin";
+import { Experience } from "@/components/screens/Experience";
 
 const Landing = () => {
   return (
@@ -9,6 +10,12 @@ const Landing = () => {
         <Hero />
         <SectionMargin classes="first-move" />
         <About />
+        <SectionMargin classes="second-move" />
+        <Experience />
+        <SectionMargin classes="third-move" />
+        <About />
+        <SectionMargin classes="fourth-move" />
+        <Experience />
       </div>
     </div>
   );

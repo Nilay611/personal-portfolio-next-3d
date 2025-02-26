@@ -1,7 +1,5 @@
-import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { Line, useScroll } from "@react-three/drei";
-import gsap from "gsap";
 import { useFrame } from "@react-three/fiber";
 
 export const CameraControls = ({
@@ -20,12 +18,6 @@ export const CameraControls = ({
   );
 
   const scroll = useScroll();
-  const tl = useRef<gsap.core.Timeline | null>(null);
-
-  useEffect(() => {
-    tl.current = gsap.timeline();
-    tl.current.to({}, { duration: 1 });
-  }, []);
 
   useFrame(() => {
     const progress = scroll.offset;
