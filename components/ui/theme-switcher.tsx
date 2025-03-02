@@ -12,7 +12,7 @@ export const ThemeSwitcher = () => {
   }, [theme]);
 
   return (
-    <div className="fixed top-10 right-20 z-10 flex flex-row gap-4 items-center">
+    <div className="fixed top-5 right-5 sm:top-10 sm:right-20 z-10 flex flex-row gap-4 items-center">
       <Sun />
       <Switch
         checked={checkedOn}

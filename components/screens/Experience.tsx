@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
-import { ArrowDownToLine } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import skills from "@/public/assets/data/skills.json";
 import experiences from "@/public/assets/data/experiences.json";
 
@@ -101,14 +101,10 @@ export const Experience = () => {
           </div>
         ))}
         <p className="leading-[2] mt-16 font-geist-mono text-text">
-          <span className="text-accent">download my resume</span> in the LaTeX
+          <span className="text-accent">view my resume</span> in the LaTeX
           format by clicking on the following.
         </p>
-        <Button
-          text="Download"
-          iconPrimary={<ArrowDownToLine />}
-          classes="mt-10"
-        />
+        <Button text="view" iconPrimary={<MoveRight />} classes="mt-10" />
       </div>
     </SectionWrapper>
   );

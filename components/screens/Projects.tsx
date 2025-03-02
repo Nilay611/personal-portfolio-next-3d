@@ -22,19 +22,19 @@ export const Projects = () => {
       <SectionHeading title="Projects" pageNo="03" />
       <div className="relative px-[5%] py-[20%]">
         <ProjectsGrid className="max-w-4xl mx-auto">
-          {projects.data.map((item, i) => (
+          {projects.data.map((project, i) => (
             <ProjectsGridItem
-              key={item.id}
-              title={item.title}
-              description={item.smallDesc}
-              header={<Skeleton />}
+              key={project.id}
+              title={project.title}
+              description={project.smallDesc}
+              header={<Skeleton imgLink={project.imageLink} />}
               className={
                 i === 0 || i === 3 || i === 8 || i === 12 ? "md:col-span-2" : ""
               }
             >
               <button
                 className="w-full h-full absolute cursor-pointer z-10 top-0 left-0"
-                onClick={() => handleProjectClick(item)}
+                onClick={() => handleProjectClick(project)}
               ></button>
             </ProjectsGridItem>
           ))}
@@ -50,6 +50,13 @@ export const Projects = () => {
   );
 };
 
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
+const Skeleton = ({ imgLink }: { imgLink: string }) => (
+  <div
+    className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl"
+    style={{
+      backgroundImage: `url(${imgLink})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  ></div>
 );

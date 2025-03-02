@@ -49,9 +49,9 @@ export const ProjectsGridItem = ({
         </div>
         <div className="font-normal text-neutral-600 text-xs dark:text-neutral-300">
           {description}
-          {children}
         </div>
       </div>
+      {children}
     </div>
   );
 };
