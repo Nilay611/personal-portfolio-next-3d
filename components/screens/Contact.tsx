@@ -23,7 +23,7 @@ export const Contact = () => {
           <MoveRight /> <span>_linkedIn</span>
         </a>
         <a
-          href="https://linkedin.com/in/nilaysaxena22"
+          href="https://github.com/Nilay611"
           className="leading-[2] mt-5 text-foreground font-semibold flex flex-row gap-2 items-center underline underline-offset-4"
         >
           <MoveRight />

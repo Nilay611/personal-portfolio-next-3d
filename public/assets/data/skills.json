@@ -1,0 +1,9 @@
+{
+    "progLang": "JavaScript, TypeScript, Hack, C#, Python, SQL",
+    "backDev": "Node.JS, ASP.NET Core, FastAPI, Flask (Scalable services)",
+    "frontDev": "React.JS, Next.JS, React Native",
+    "databases": "SQL Server, PostgreSQL, MongoDB",
+    "versionControl": "Git, Azure DevOps, CI/CD, Docker, Kubernetes",
+    "softArch": "Scalable Architectures, Distributed Systems",
+    "dsa": "Problem Solving, Algorithm Design"
+}
