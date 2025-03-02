@@ -9,7 +9,7 @@ import { LoopOnce } from "three";
 import { useLoadingState } from "@/providers/LoadingProvider";
 
 export function GamingRoom() {
-  const { scene, animations } = useGLTF("./assets/models/gaming_room_m.glb");
+  const { scene, animations } = useGLTF("./assets/models/gaming_room.glb");
   const { theme } = useTheme();
   const { actions } = useAnimations(animations, scene);
   const { isLoading } = useLoadingState();
@@ -38,4 +38,4 @@ export function GamingRoom() {
   );
 }
 
-useGLTF.preload("./assets/models/gaming_room_m.glb");
+useGLTF.preload("./assets/models/gaming_room.glb");
