@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import * as THREE from "three";
+import { Vector3 } from "three";
 import { useProgress, Html } from "@react-three/drei";
 import { Suspense, useEffect, useState } from "react";
 import { Cameras } from "@/components/ui/cameras";
@@ -10,8 +10,8 @@ import { useLoadingState } from "@/providers/LoadingProvider";
 
 const ModelContainer = () => {
   const { progress } = useProgress();
-  const [cameraVector, setCameraVector] = useState<THREE.Vector3>(
-    new THREE.Vector3(0, 0, 0)
+  const [cameraVector, setCameraVector] = useState<Vector3>(
+    new Vector3(0, 0, 0)
   ); // Added for getting and updating the progress of the camera respective to the scroll
   const { setIsLoading } = useLoadingState();
 

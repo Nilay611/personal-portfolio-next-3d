@@ -1,13 +1,13 @@
-import * as THREE from "three";
+import { Object3D, OrthographicCamera } from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const desktopAnimations = (
-  groupRef: THREE.Object3D,
-  tabletRef: THREE.Object3D,
-  camera: THREE.OrthographicCamera
+  groupRef: Object3D,
+  tabletRef: Object3D,
+  camera: OrthographicCamera
 ) => {
   camera.zoom = 180;
   groupRef.position.set(0, 0, 0);
@@ -103,8 +103,8 @@ export const desktopAnimations = (
 };
 
 export const mobileAnimations = (
-  groupRef: THREE.Object3D,
-  camera: THREE.OrthographicCamera
+  groupRef: Object3D,
+  camera: OrthographicCamera
 ) => {
   camera.zoom = 100;
   groupRef.position.set(0, 0, -0.25);
@@ -202,7 +202,7 @@ export const mobileAnimations = (
     );
 };
 
-export const commonAnimations = (floorRef: THREE.Object3D) => {
+export const commonAnimations = (floorRef: Object3D) => {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
     const progressWrapper = section.querySelector(".progress-wrapper");

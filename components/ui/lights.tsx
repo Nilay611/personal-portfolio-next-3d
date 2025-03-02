@@ -1,8 +1,8 @@
-import * as THREE from "three";
+import { Object3D, Object3DEventMap } from "three";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 export const Lights = () => {
-  const primObj = new THREE.Object3D<THREE.Object3DEventMap>();
+  const primObj = new Object3D<Object3DEventMap>();
 
   return (
     <>
@@ -70,7 +70,7 @@ export const LightLights = () => {
 };
 
 export const DarkLights = () => {
-  const primObj = new THREE.Object3D<THREE.Object3DEventMap>();
+  const primObj = new Object3D<Object3DEventMap>();
   return (
     <>
       <primitive object={primObj} />

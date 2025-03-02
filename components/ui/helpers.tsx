@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import { OrthographicCamera, CameraHelper } from "three";
 
 export const GridAxesHelpers = () => {
   return (
@@ -13,11 +13,11 @@ export const GridAxesHelpers = () => {
 
 export const CameraHelpers = () => {
   const { scene } = useThree();
-  const cameraRef = useRef<THREE.OrthographicCamera>(null);
+  const cameraRef = useRef<OrthographicCamera>(null);
 
   useEffect(() => {
     if (cameraRef.current) {
-      const helper = new THREE.CameraHelper(cameraRef.current);
+      const helper = new CameraHelper(cameraRef.current);
       scene.add(helper);
 
       return () => {

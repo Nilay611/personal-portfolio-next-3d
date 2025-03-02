@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import { Object3D, OrthographicCamera } from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -13,28 +13,9 @@ export const Room: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { scene, camera } = useThree();
   gsap.registerPlugin(ScrollTrigger);
 
-  const findSceneObjectByName = (root: THREE.Object3D, targetName: string) => {
+  const findSceneObjectByName = (root: Object3D, targetName: string) => {
     return root.getObjectByName(targetName);
   };
-
-  const setShadowForChildren = useCallback((object: THREE.Object3D) => {
-    object.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    if (!scene) return;
-    console.log(scene);
-
-    const groupRef = findSceneObjectByName(scene, "gamingRoom");
-    if (groupRef) {
-      setShadowForChildren(groupRef);
-    }
-  }, [scene, setShadowForChildren]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -49,15 +30,11 @@ export const Room: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 960px)", () => {
-        desktopAnimations(
-          groupRef,
-          tabletRef,
-          camera as THREE.OrthographicCamera
-        );
+        desktopAnimations(groupRef, tabletRef, camera as OrthographicCamera);
       });
 
       mm.add("(max-width: 959px)", () => {
-        mobileAnimations(groupRef, camera as THREE.OrthographicCamera);
+        mobileAnimations(groupRef, camera as OrthographicCamera);
       });
 
       mm.add("all", () => {

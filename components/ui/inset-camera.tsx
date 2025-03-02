@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import { PerspectiveCamera as PSCamera } from "three";
 import { PerspectiveCamera } from "@react-three/drei";
 
 export const InsetCamera = () => {
   const { gl, scene, size, camera } = useThree();
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const cameraRef = useRef<PSCamera | null>(null);
 
   useFrame(() => {
     if (!cameraRef.current) return;

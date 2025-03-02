@@ -1,7 +1,7 @@
 import { OrthographicCamera } from "@react-three/drei";
-import * as THREE from "three";
+import { Vector3 } from "three";
 
-export const Cameras = ({ cameraVector }: { cameraVector: THREE.Vector3 }) => {
+export const Cameras = ({ cameraVector }: { cameraVector: Vector3 }) => {
   return (
     <OrthographicCamera
       makeDefault
