@@ -52,29 +52,11 @@ export const Lights = () => {
   );
 };
 
-export const LightLights = () => {
-  return (
-    <>
-      <directionalLight
-        color="#f7efe0"
-        position={[5, 7, 0]}
-        intensity={2}
-        castShadow
-        shadow-mapSize={[2048, 2048]}
-        shadow-camera-far={20}
-        shadow-normalBias={0.05}
-      />
-      <ambientLight color="#f7efe0" intensity={1} />
-    </>
-  );
-};
-
 export const DarkLights = () => {
   const primObj = new Object3D<Object3DEventMap>();
   return (
     <>
       <primitive object={primObj} />
-      <ambientLight color="#2c379c" intensity={1} />
       <pointLight
         position={[0.46, 0.6, -0.73]}
         intensity={0.1}
