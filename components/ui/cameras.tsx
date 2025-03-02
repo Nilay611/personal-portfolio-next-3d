@@ -6,9 +6,9 @@ export const Cameras = ({ cameraVector }: { cameraVector: THREE.Vector3 }) => {
     <OrthographicCamera
       makeDefault
       position={cameraVector}
-      near={-50}
-      far={50}
-      zoom={45}
+      near={-25}
+      far={25}
+      zoom={180}
     />
   );
 };

@@ -1,24 +1,25 @@
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import { useProgress, Html } from "@react-three/drei";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Cameras } from "@/components/ui/cameras";
 import { Controls } from "@/components/ui/controls";
 import { CameraControls } from "@/components/ui/camera-controls";
 import { GamingRoom } from "@/components/ui/model";
-
-const Loader = () => {
-  const {
-    progress,
-    //active
-  } = useProgress();
-  return <Html center>{progress.toFixed(1)}%</Html>;
-};
+import { useLoadingState } from "@/providers/LoadingProvider";
 
 const ModelContainer = () => {
+  const { progress } = useProgress();
   const [cameraVector, setCameraVector] = useState<THREE.Vector3>(
     new THREE.Vector3(0, 0, 0)
   ); // Added for getting and updating the progress of the camera respective to the scroll
+  const { setIsLoading } = useLoadingState();
+
+  useEffect(() => {
+    if (progress === 100) {
+      setIsLoading(false);
+    }
+  }, [progress, setIsLoading]);
 
   return (
     <Canvas
@@ -27,8 +28,8 @@ const ModelContainer = () => {
       dpr={[1, 1.5]}
       shadows="soft"
     >
-      <Suspense fallback={<Loader />}>
-        <group>
+      <Suspense fallback={<Html center>Loading...</Html>}>
+        <group name="modelContainer">
           <Controls>
             <CameraControls setCameraVector={setCameraVector} />
             <Cameras cameraVector={cameraVector} />

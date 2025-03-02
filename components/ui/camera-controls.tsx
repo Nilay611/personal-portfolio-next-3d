@@ -9,10 +9,10 @@ export const CameraControls = ({
 }) => {
   const curve = new THREE.CatmullRomCurve3(
     [
-      new THREE.Vector3(10, 10, 10),
-      new THREE.Vector3(-10, 10, 10),
-      new THREE.Vector3(-10, 10, -10),
-      new THREE.Vector3(10, 10, -10),
+      new THREE.Vector3(2, 2, 2),
+      new THREE.Vector3(-2, 2, 2),
+      new THREE.Vector3(-2, 2, -2),
+      new THREE.Vector3(2, 2, -2),
     ],
     true
   );
