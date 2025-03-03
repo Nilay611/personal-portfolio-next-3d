@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import skills from "@/public/assets/data/skills.json";
 import experiences from "@/public/assets/data/experiences.json";
+import { CompanyDetail } from "@/components/ui/company-detail";
 
 export const Experience = () => {
   return (
@@ -76,29 +77,7 @@ export const Experience = () => {
           careerOverview
         </h3>
         {experiences.data.map((company) => (
-          <div
-            key={company.companyId}
-            className="leading-[2] mt-5 font-geist-mono"
-          >
-            <h3 className="font-semibold underline underline-offset-4 text-black dark:text-white">
-              {company.companyName}
-            </h3>
-            <p className="text-black dark:text-white">{company.designation}</p>
-            <p className="italic text-black dark:text-white">
-              {company.period}
-            </p>
-            <ul>
-              {company.summary.map((point) => (
-                <li key={point.id} className="list-disc">
-                  {point.point}
-                </li>
-              ))}
-            </ul>
-            <p className="italic">
-              <span className="underline underline-offset-4">Technologies</span>
-              : {company.tech}
-            </p>
-          </div>
+          <CompanyDetail key={company.companyId} company={company} />
         ))}
         <p className="leading-[2] mt-16 font-geist-mono text-text">
           <span className="text-accent">view my resume</span> in the LaTeX

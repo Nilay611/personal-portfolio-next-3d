@@ -3,17 +3,20 @@ import { createContext, useContext, ReactNode, useMemo, useState } from "react";
 
 interface LoadingContextType {
   isLoading: boolean;
+  enter: boolean;
   setIsLoading: (state: boolean) => void;
+  setEnter: (state: boolean) => void;
 }
 
 export const LoadingContext = createContext<LoadingContextType | null>(null);
 
 export const LoadingProvider = (props: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [enter, setEnter] = useState(false);
 
   const value = useMemo(
-    () => ({ isLoading, setIsLoading }),
-    [isLoading, setIsLoading]
+    () => ({ isLoading, enter, setIsLoading, setEnter }),
+    [isLoading, enter, setIsLoading, setEnter]
   );
 
   return (

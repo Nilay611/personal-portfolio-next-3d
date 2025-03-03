@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const desktopAnimations = (
   groupRef: Object3D,
-  tabletRef: Object3D,
+  floorRef: Object3D,
   camera: OrthographicCamera
 ) => {
   camera.zoom = 180;
@@ -100,6 +100,18 @@ export const desktopAnimations = (
       },
       "<"
     );
+
+  gsap.to(floorRef.scale, {
+    x: 0.5,
+    y: 0.5,
+    z: 0.5,
+    scrollTrigger: {
+      trigger: ".first-move",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 0.6,
+    },
+  });
 };
 
 export const mobileAnimations = (
@@ -202,7 +214,7 @@ export const mobileAnimations = (
     );
 };
 
-export const commonAnimations = (floorRef: Object3D) => {
+export const commonAnimations = () => {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
     const progressWrapper = section.querySelector(".progress-wrapper");
@@ -261,17 +273,5 @@ export const commonAnimations = (floorRef: Object3D) => {
         pinSpacing: false,
       },
     });
-  });
-
-  gsap.to(floorRef.scale, {
-    x: 0.5,
-    y: 0.5,
-    z: 0.5,
-    scrollTrigger: {
-      trigger: ".first-move",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 0.6,
-    },
   });
 };

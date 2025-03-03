@@ -13,7 +13,7 @@ export const SectionWrapper = ({
 }) => {
   return (
     <section
-      className={`section md:w-1/2 w-full pt-[1000px] px-[4%] m-0 bg-background font-geist-mono overflow-hidden dark:text-slate-400 text-slate-600 ${
+      className={`section relative md:w-1/2 w-full pt-[1000px] px-[4%] m-0 bg-background font-geist-mono overflow-hidden dark:text-slate-400 text-slate-600 ${
         orientation === "left"
           ? "mr-auto rounded-tr-[700px] rounded-br-0"
           : "ml-auto rounded-tl-[700px] rounded-bl-0"
