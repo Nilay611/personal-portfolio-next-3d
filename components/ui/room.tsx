@@ -41,10 +41,12 @@ export const Room: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 960px)", () => {
+        window.devicePixelRatio = 1;
         desktopAnimations(groupRef, floorRef, camera as OrthographicCamera);
       });
 
       mm.add("(max-width: 959px)", () => {
+        window.devicePixelRatio = 0.5;
         mobileAnimations(groupRef, camera as OrthographicCamera);
       });
 
